@@ -18,7 +18,7 @@ public class ZebraRunner {
 	System.out.println("The Zebra is alive::"+ref.alive);
 	System.out.println("The span of Zebra is "+ref.span);
 	
-	System.out.println("=====");
+	System.out.println("=======");
 	}
 
 }
