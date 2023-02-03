@@ -9,18 +9,18 @@ public class Rainbow {
 	public String olderColour;
 	public String place;
 	
-	public Rainbow(int arg1,boolean arg2, int arg3,String arg4, double arg5,String arg6,String arg7) {
-		this.natural=arg2;
-		this.noOfColour=arg1;
-		this.time=arg3;
-		this.rareRainbow=arg4;
-		this.seen=arg5;
-		this.olderColour=arg6;
-		this.place=arg7;
+	public Rainbow(int noOfColour,boolean natural, int time,String rareRainbow, double seen,String olderColour,String place) {
+		this.natural=natural;
+		this.noOfColour=noOfColour;
+		this.time=time;
+		this.rareRainbow=rareRainbow;
+		this.seen=seen;
+		this.olderColour=olderColour;
+		this.place=place;
 	}
 	
 	public void display() {
-		System.out.println("The noOfColour"+noOfColour);
+		System.out.println("The noOfColour ::"+noOfColour);
 		System.out.println("The Rainbow is natural ::"+natural);
 		System.out.println("The time is at "+time);
 		System.out.println("The rareRainbow"+rareRainbow);

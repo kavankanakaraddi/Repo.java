@@ -8,14 +8,14 @@ public class Umbrella {
 	public float amount;
 	public boolean quality;
 
-	public Umbrella(String arg1,int arg2,double arg3,char arg4,float arg5,boolean arg6)
+	public Umbrella(String size,int numbers,double spokes,char brand,float amount,boolean quality)
 		{
-			this.size=arg1;
-			this.numbers=arg2;
-			this.spokes=arg3;
-			this.brand=arg4;
-			this.amount=arg5;
-			this.quality=arg6;
+			this.size=size;
+			this.numbers=numbers;
+			this.spokes=spokes;
+			this.brand=brand;
+			this.amount=amount;
+			this.quality=quality;
 		
 		}
 	public void display() {

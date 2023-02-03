@@ -9,15 +9,15 @@ public class Frame {
 	public boolean quality;
 	public String place;
 
-	public Frame(String arg1,int arg2,double arg3,char arg4,float arg5,boolean arg6,String arg7)
+	public Frame(String size,int quantity,double ordered,char brand,float amount,boolean quality,String place)
 		{
-			this.size=arg1;
-			this.quantity=arg2;
-			this.ordered=arg3;
-			this.brand=arg4;
-			this.amount=arg5;
-			this.quality=arg6;
-			this.place=arg7;
+			this.size=size;
+			this.quantity=quantity;
+			this.ordered=ordered;
+			this.brand=brand;
+			this.amount=amount;
+			this.quality=quality;
+			this.place=place;
 		}
 	public void display() {
 		System.out.println("The Frame size is ::"+size);
