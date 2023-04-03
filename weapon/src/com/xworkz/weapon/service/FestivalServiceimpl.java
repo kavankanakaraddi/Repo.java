@@ -3,18 +3,20 @@ package com.xworkz.weapon.service;
 import java.time.LocalDate;
 
 import com.xworkz.weapon.Exception.InvalidFestivalException;
+import com.xworkz.weapon.Repository.FestivalRepository;
+import com.xworkz.weapon.Repository.FestivalRepositoryimpl;
 import com.xworkz.weapon.dto.FestivalDTO;
 import com.xworkz.weapon.util.FestivalValidUtil;
 
-public class FestivalServiceimpl {
+public class FestivalServiceimpl implements FestivalService{
 	private FestivalRepository festivalRepository;
 
 	public FestivalServiceimpl(FestivalRepository festivalRepository) {
-		super();
 		this.festivalRepository = festivalRepository;
 	}
 
-	public boolean validateAndThenSave(FestivalDTO dto) throws InvalidFestivalException{
+	@Override
+	public boolean validateAndThenSave(FestivalDTO dto) throws InvalidFestivalException {
 		if (dto != null) {
 			System.out.println("DTO is not null,so Validate");
 			int id = dto.getId();
@@ -71,8 +73,15 @@ public class FestivalServiceimpl {
 			if (FestivalValidUtil.validFalg(validId, validName, validStartDate, validEndDate, validSweet,
 					validGodName)) {
 				System.out.println("Validation Done so saved");
-				boolean save=this.festivalRepository.save(dto);
-				return save;
+				boolean exist = this.festivalRepository.isExists(dto);
+					if(!exist) {
+						boolean save = this.festivalRepository.save(dto);
+						System.out.println("DTO is Not Duplicate So Save "+dto);
+						return save;
+					}else {
+						System.err.println("DTO is Duplicate So Do Not Save  "+dto);
+					}
+			
 			} else {
 				throw new InvalidFestivalException("Data is Invalid");
 			}
@@ -81,6 +90,12 @@ public class FestivalServiceimpl {
 		}
 		return false;
 	}
-
-
+	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return this.festivalRepository.getCount();
+	}
+	
 }
+
+
