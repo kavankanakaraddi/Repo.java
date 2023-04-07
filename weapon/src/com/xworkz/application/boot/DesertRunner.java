@@ -1,10 +1,12 @@
 package com.xworkz.application.boot;
 
 import com.xworkz.application.Repository.DesertRepository;
+
 import com.xworkz.application.Repository.DesertRepositoryIMPL;
 import com.xworkz.application.Service.DesertService;
 import com.xworkz.application.Service.DesertServiceIMPL;
 import com.xworkz.application.dto.DesertDTO;
+import com.xworkz.application.exceptions.DesertMemoryFullException;
 import com.xworkz.application.exceptions.InvaliDataDesertException;
 
 public class DesertRunner {
@@ -12,7 +14,7 @@ public class DesertRunner {
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		DesertDTO dto = new DesertDTO(1, "Antarctic Desert", "Antartica", "142*100000", 42, 64);
-		
+
 		DesertRepository repository = new DesertRepositoryIMPL();
 		DesertService service = new DesertServiceIMPL(repository);
 		DesertDTO dto1 = new DesertDTO(2, "Artic Desert", "Northern America", "13,900,000", 16, 45);
@@ -66,142 +68,74 @@ public class DesertRunner {
 
 			boolean save6 = service.validateAndThenSave(dto6);
 			System.out.println("Saved:" + save6);
-			System.out.println(service.find(dto6));
-			System.out.println(service.findByName("Kalahari Desert"));
-			System.out.println(service.findAreaByName("Kalahari Desert"));
-			System.out.println(service.findByNameAndCountryAndArea("Kalahari Desert", "Southern Africa", "900,000"));
 			System.out.println("***************************");
 
 			boolean save7 = service.validateAndThenSave(dto7);
 			System.out.println("Saved:" + save7);
-			System.out.println(service.find(dto7));
-			System.out.println(service.findByName("Patagonian Desert"));
-			System.out.println(service.findAreaByName("Patagonian Desert"));
-			System.out.println(service.findByNameAndCountryAndArea("Patagonian Desert", "Argentina", "673,000"));
 			System.out.println("***************************");
 
 			boolean save8 = service.validateAndThenSave(dto8);
 			System.out.println("Saved:" + save8);
-			System.out.println(service.find(dto8));
-			System.out.println(service.findByName("Syrian Desert"));
-			System.out.println(service.findAreaByName("Syrian Desert"));
-			System.out.println(service.findByNameAndCountryAndArea("Syrian Desert", "Syria", "500,000"));
 			System.out.println("***************************");
 
 			boolean save9 = service.validateAndThenSave(dto9);
 			System.out.println("Saved:" + save9);
-			System.out.println(service.find(dto9));
-			System.out.println(service.findByName("Great Basin"));
-			System.out.println(service.findAreaByName("Great Basin"));
-			System.out.println(service.findByNameAndCountryAndArea("Great Basin", "Northern America", "492,098"));
 			System.out.println("***************************");
 
 			boolean save10 = service.validateAndThenSave(dto10);
 			System.out.println("Saved:" + save10);
-			System.out.println(service.find(dto10));
-			System.out.println(service.findByName("Chihuahuan Desert"));
-			System.out.println(service.findAreaByName("Chihuahuan Desert"));
-			System.out.println(service.findByNameAndCountryAndArea("Chihuahuan Desert", "Northern America", "453,248"));
 			System.out.println("***************************");
 
 			boolean save11 = service.validateAndThenSave(dto11);
 			System.out.println("Saved:" + save11);
-			System.out.println(service.find(dto11));
-			System.out.println(service.findByName("Karakum Desert"));
-			System.out.println(service.findAreaByName("Karakum Desert"));
-			System.out.println(service.findByNameAndCountryAndArea("Karakum Desert", "Australia", "348,750"));
 			System.out.println("***************************");
 
 			boolean save12 = service.validateAndThenSave(dto12);
 			System.out.println("Saved:" + save12);
-			System.out.println(service.find(dto12));
-			System.out.println(service.findByName("Great Victoria"));
-			System.out.println(service.findAreaByName("Great Victoria"));
-			System.out.println(service.findByNameAndCountryAndArea("Great Victoria", "Turkmenistan", "350,000"));
 			System.out.println("***************************");
 
 			boolean save13 = service.validateAndThenSave(dto13);
 			System.out.println("Saved:" + save13);
-			System.out.println(service.find(dto13));
-			System.out.println(service.findByName("Colorado Plateau"));
-			System.out.println(service.findAreaByName("Colorado Plateau"));
-			System.out.println(service.findByNameAndCountryAndArea("Colorado Plateau", "Northern America", "337000"));
 			System.out.println("***************************");
 
 			boolean save14 = service.validateAndThenSave(dto14);
 			System.out.println("Saved:" + save14);
-			System.out.println(service.find(dto14));
-			System.out.println(service.findByName("Sonoran Desert"));
-			System.out.println(service.findAreaByName("Sonoran Desert"));
-			System.out.println(service.findByNameAndCountryAndArea("Sonoran Desert", "Mexico", "310000"));
 			System.out.println("***************************");
 
 			boolean save15 = service.validateAndThenSave(dto15);
 			System.out.println("Saved:" + save15);
-			System.out.println(service.find(dto15));
-			System.out.println(service.findByName("Kyzylkum Desert"));
-			System.out.println(service.findAreaByName("Kyzylkum Desert"));
-			System.out.println(
-					service.findByNameAndCountryAndArea("Kyzylkum Desert", "Turkmenistan and Uzbekistan", "300300"));
 			System.out.println("***************************");
 
 			boolean save16 = service.validateAndThenSave(dto16);
 			System.out.println("Saved:" + save16);
-			System.out.println(service.find(dto16));
-			System.out.println(service.findByName("Taklamakan Desert"));
-			System.out.println(service.findAreaByName("Taklamakan Desert"));
-			System.out.println(service.findByNameAndCountryAndArea("Taklamakan Desert", "China", "270000"));
 			System.out.println("***************************");
 
 			boolean save17 = service.validateAndThenSave(dto17);
 			System.out.println("Saved:" + save17);
-			System.out.println(service.find(dto17));
-			System.out.println(service.findByName("Ogden Desert"));
-			System.out.println(service.findAreaByName("Ogden Desert"));
-			System.out.println(service.findByNameAndCountryAndArea("Ogden Desert", "Eastern Africa", "256000"));
 			System.out.println("***************************");
 
 			boolean save18 = service.validateAndThenSave(dto18);
 			System.out.println("Saved:" + save18);
-			System.out.println(service.find(dto18));
-			System.out.println(service.findByName("Thar Desert"));
-			System.out.println(service.findAreaByName("Thar Desert"));
-			System.out.println(service.findByNameAndCountryAndArea("Thar Desert", "India", "238,254"));
 			System.out.println("***************************");
 
 			boolean save20 = service.validateAndThenSave(dto20);
 			System.out.println("Saved:" + save20);
-			System.out.println(service.find(dto20));
-			System.out.println(service.findByName("Ustyurt Plateau"));
-			System.out.println(service.findAreaByName("Ustyurt Plateau"));
-			System.out.println(service.findByNameAndCountryAndArea("Ustyurt Plateau", "Uzbekistan", "2000000"));
 			System.out.println("***************************");
 
 			boolean save21 = service.validateAndThenSave(dto21);
 			System.out.println("Saved:" + save21);
-			System.out.println(service.find(dto21));
-			System.out.println(service.findByName("Guban Desert"));
-			System.out.println(service.findAreaByName("Guban Desert"));
-			System.out.println(service.findByNameAndCountryAndArea("Guban Desert", "Somalia", "175000"));
 			System.out.println("***************************");
 
 			boolean save22 = service.validateAndThenSave(dto22);
-			System.out.println("Saved:" + save22);
-			System.out.println(service.find(dto22));
-			System.out.println(service.findByName("Namib Desert"));
-			System.out.println(service.findAreaByName("Namib Desert"));
-			System.out.println(service.findByNameAndCountryAndArea("Namib Desert", "South Africa", "160000"));
 			System.out.println("***************************");
 
 			boolean save23 = service.validateAndThenSave(dto23);
 			System.out.println("Saved:" + save23);
-			System.out.println(service.find(dto23));
-			System.out.println(service.findByName("Registan Desert"));
-			System.out.println(service.findAreaByName("Registan Desert"));
-			System.out.println(service.findByNameAndCountryAndArea("Registan Desert", "Afghanistan", "146000"));
 			System.out.println("***************************");
 		} catch (InvaliDataDesertException e) {
 			e.getMessage();
+		} catch (DesertMemoryFullException e) {
+			e.printStackTrace();
 		}
 		System.out.println(service.getTotal());
 

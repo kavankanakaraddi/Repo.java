@@ -13,49 +13,6 @@ public class DesertServiceIMPL implements DesertService {
 	}
 
 	@Override
-	public DesertDTO find(DesertDTO dto) throws InvaliDataDesertException {
-		if (dto != null) {
-			DesertDTO fin = this.desertRepository.find(dto);
-			return fin;
-		}
-		throw new InvaliDataDesertException("Data Invalid Exception:Passing invalid data");
-	}
-
-	@Override
-	public DesertDTO findByName(String name) throws InvaliDataDesertException {
-		if (validString(name)) {
-			DesertDTO byName = this.desertRepository.findByName(name);
-			return byName;
-		}
-		throw new InvaliDataDesertException("Data Invalid Exception:Passing invalid name");
-	}
-
-	@Override
-	public String findAreaByName(String name) throws InvaliDataDesertException {
-		if (validString(name)) {
-			String areaByName = this.desertRepository.findAreaByName(name);
-			return areaByName;
-		}
-		throw new InvaliDataDesertException("Data Invalid Exception:Passing invalid area by name");
-	}
-
-	@Override
-	public DesertDTO findByNameAndCountryAndArea(String name, String country, String area)
-			throws InvaliDataDesertException {
-		if (validString(name) && validString(country) && validString(area)) {
-			DesertDTO ref = this.desertRepository.findByNameAndCountryAndArea(name, country, area);
-			return ref;
-		}
-		throw new InvaliDataDesertException("Data Invalid Exception:Passing invalid data's");
-	}
-
-	@Override
-	public int getTotal() {
-		// TODO Auto-generated method stub
-		return this.desertRepository.total();
-	}
-
-	@Override
 	public boolean validateAndThenSave(DesertDTO dto) throws InvaliDataDesertException {
 		if (dto != null) {
 			System.out.println("dto is not null so validate");
@@ -129,6 +86,49 @@ public class DesertServiceIMPL implements DesertService {
 			System.err.println("Dto is null so dont save");
 		}
 		return false;
+	}
+
+	@Override
+	public DesertDTO find(DesertDTO dto) throws InvaliDataDesertException {
+		if (dto != null) {
+			DesertDTO fin = this.desertRepository.find(dto);
+			return fin;
+		}
+		throw new InvaliDataDesertException("Data Invalid Exception:Passing invalid data");
+	}
+
+	@Override
+	public DesertDTO findByName(String name) throws InvaliDataDesertException {
+		if (validString(name)) {
+			DesertDTO byName = this.desertRepository.findByName(name);
+			return byName;
+		}
+		throw new InvaliDataDesertException("Data Invalid Exception:Passing invalid name");
+	}
+
+	@Override
+	public String findAreaByName(String name) throws InvaliDataDesertException {
+		if (validString(name)) {
+			String areaByName = this.desertRepository.findAreaByName(name);
+			return areaByName;
+		}
+		throw new InvaliDataDesertException("Data Invalid Exception:Passing invalid area by name");
+	}
+
+	@Override
+	public DesertDTO findByNameAndCountryAndArea(String name, String country, String area)
+			throws InvaliDataDesertException {
+		if (validString(name) && validString(country) && validString(area)) {
+			DesertDTO ref = this.desertRepository.findByNameAndCountryAndArea(name, country, area);
+			return ref;
+		}
+		throw new InvaliDataDesertException("Data Invalid Exception:Passing invalid data's");
+	}
+
+	@Override
+	public int getTotal() {
+		// TODO Auto-generated method stub
+		return this.desertRepository.total();
 	}
 
 }

@@ -15,7 +15,7 @@ public class DesertRepositoryIMPL implements DesertRepository {
 			System.out.println("Index value is " + this.indexValue + " " + dto);
 			return true;
 		} else {
-			System.out.println("Memory is full,cannot add more files,max allowed is 23");
+			System.err.println("Memory is full,cannot add more files,max allowed is 23");
 			throw new DesertMemoryFullException("Memory is full,cannot add more files,max allowed is 23");
 		}
 
@@ -26,13 +26,14 @@ public class DesertRepositoryIMPL implements DesertRepository {
 		if (indexValue == 0) {
 			System.out.println("First value will not check");
 			return false;
-		}
-		System.out.println("First value onwards check");
-		for (int i = 0; i < this.indexValue; i++) {
-			DesertDTO temp = this.value[i];
-			if (temp.equals(dto)) {
-				System.out.println("Dto is already exist");
-				return true;
+		} else {
+			System.out.println("First index onwards check");
+			for (int i = 0; i < this.indexValue; i++) {
+				DesertDTO temp = this.value[i];
+				if (temp.equals(dto)) {
+					System.out.println("Dto is already exist");
+					return true;
+				}
 			}
 
 		}

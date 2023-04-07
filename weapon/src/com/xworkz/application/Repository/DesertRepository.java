@@ -21,7 +21,6 @@ public interface DesertRepository {
 
 	default String findAreaByName(String name) {
 		return null;
-		
 
 	}
 
@@ -29,6 +28,7 @@ public interface DesertRepository {
 		return null;
 
 	}
+
 	default int total() {
 		return 0;
 	}
