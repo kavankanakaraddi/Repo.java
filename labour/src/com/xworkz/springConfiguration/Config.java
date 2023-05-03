@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan("com.xworkz")
-
 public class Config {
 	
 	@Bean
@@ -43,7 +42,7 @@ public class Config {
 	@Bean
 	public String boy() {
 		System.out.println("running boy method....");
-		return "Annesh";
+		return "Annesh1";
 	}
 	@Bean
 	public String girl() {
